@@ -1,3 +1,4 @@
+import Authpage from "./components/authpage";
 import Passpage from "./components/passpage";
 
 
@@ -5,7 +6,7 @@ function App() {
 
   return(
     <div>
-      <Passpage />
+      <Authpage />
     </div>
   );
 }
