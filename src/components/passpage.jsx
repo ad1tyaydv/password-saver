@@ -74,7 +74,7 @@ function Passpage() {
                     Add New Password
                 </span>
                 <div className="pt-5">
-                    <label className="block">Website</label>
+                    <label className="block text-xl">Website</label>
                     <input
                         type="text"
                         value={website}
@@ -84,7 +84,7 @@ function Passpage() {
                     />
                 </div>
                 <div className="pt-5">
-                    <label className="block">Username</label>
+                    <label className="block text-xl">Username</label>
                     <input
                         type="text"
                         value={username}
@@ -94,7 +94,7 @@ function Passpage() {
                     />
                 </div>
                 <div className="pt-5">
-                    <label className="block">Password</label>
+                    <label className="block text-xl">Password</label>
                     <input
                         type="password"
                         value={password}
@@ -126,9 +126,9 @@ function Passpage() {
                             <div key={pwd.id} className="bg-[#1f2937] p-4 rounded-lg text-white">
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <div className="font-bold">{pwd.website}</div>
-                                        <div className="text-sm text-gray-300">Username: {pwd.username}</div>
-                                        <div className="text-sm text-gray-300">
+                                        <div className="font-bold text-xl">{pwd.website}</div>
+                                        <div className="text-sm text-gray-300 font-bold">Username: {pwd.username}</div>
+                                        <div className="text-sm text-gray-300 font-bold">
                                             Password: {visiblePasswords[pwd.id] ? (
                                                 <span className="text-green-300">{pwd.password}</span>
                                             ) : (
