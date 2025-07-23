@@ -12,7 +12,7 @@ function Login ({onSwitch}) {
         e.preventDefault();
         console.log("Login attempt:", username, password);
 
-    if(username === 'admin' && password === 'password') {
+    if(username === 'aditya' && password === 'adityaydv') {
         navigate('/passwords');
     } else {
         setError('Invalid username or password');
