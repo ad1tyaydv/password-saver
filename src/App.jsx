@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-blue-500 text-white relative">
-        
+
         <div className="fixed top-4 right-4 z-50">
           <SignedOut>
             <SignInButton />
@@ -18,8 +18,7 @@ function App() {
         </div>
 
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/passwords" element={<Passpage />} />
+          <Route path="/" element={<Passpage />} />
         </Routes>
       </div>
     </Router>
