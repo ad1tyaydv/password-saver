@@ -18,6 +18,7 @@ function App() {
         </div>
 
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route path="/passwords" element={<Passpage />} />
         </Routes>
       </div>
