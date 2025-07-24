@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import Passpage from "./components/passpage";
 import Login from "./components/login";
 
-
 function App() {
   return (
-      <Router>
-        <div>
+    <Router>
+      <div className="min-h-screen bg-[#111827] text-white">
+        <div className="p-4 flex justify-end">
           <SignedOut>
             <SignInButton />
           </SignedOut>
@@ -15,13 +15,14 @@ function App() {
             <UserButton />
           </SignedIn>
         </div>
-        
+
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/passwords" element={<Passpage />} />
         </Routes>
-      </Router>
+      </div>
+    </Router>
   );
 }
 
-export default App
+export default App;
