@@ -23,8 +23,8 @@ function Passpage() {
 
     
     const handleSavePassword = () => {
-        if(!website || !username || !password) {
-            alert("Please fill in all fields");
+        if(!password) {
+            alert("Please fill in the password!");
             return;
         }
 
@@ -78,7 +78,7 @@ function Passpage() {
                     <input
                         type="text"
                         value={website}
-                        placeholder=" Enter the website"
+                        placeholder=" Enter the website (optional)"
                         onChange={(e) => setWebsite(e.target.value)}
                         className="border-2 border-gray-600 text-white rounded w-150 pt-1"
                     />
@@ -88,7 +88,7 @@ function Passpage() {
                     <input
                         type="text"
                         value={username}
-                        placeholder=" Enter the username"
+                        placeholder=" Enter the username (optional)"
                         onChange={(e) => setUsername(e.target.value)}
                         className="border-2 border-gray-600 text-white rounded w-150 pt-1"
                     />
