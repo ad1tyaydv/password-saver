@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
 import Passpage from "./components/passpage";
 
 function App() {
   const [isVerified, setIsVerified] = useState(false);
+  const { isSignedIn } = useUser();
 
   useEffect(() => {
-    // Simulate Cloudflare bot check (real check happens at DNS level)
     const timer = setTimeout(() => {
       const isCloudflarePassed = document.cookie.includes("__cf_bm") || document.cookie.includes("cf_clearance");
       if (isCloudflarePassed) {
         setIsVerified(true);
       } else {
-        setIsVerified(true); // fallback if no cookie found (optional strictness)
+        setIsVerified(true);
       }
-    }, 3000); // 3s delay to simulate bot challenge
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -43,14 +43,14 @@ function App() {
 
         <Routes>
           <Route path="/" element={
-            <SignedOut>
+            isSignedIn ? <Navigate to="/dashboard" /> : (
               <div className="flex flex-col items-center justify-center min-h-screen">
-                <h1 className="text-2xl mb-4">Welcome to Password Saver</h1>
+                <h1 className="text-2xl mb-4">Welcome to password saver</h1>
                 <SignInButton className="px-8 py-3 bg-blue-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-blue-700 transition duration-300" />
               </div>
-            </SignedOut>
+            )
           } />
-          <Route path="/passwords" element={
+          <Route path="/dashboard" element={
             <SignedIn>
               <Passpage />
             </SignedIn>
